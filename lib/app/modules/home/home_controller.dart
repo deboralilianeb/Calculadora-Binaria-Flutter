@@ -23,7 +23,7 @@ abstract class _HomeControllerBase with Store {
     return numDec;
   }
 
-  String DecToBin(String num) {
+  String decToBin(String num) {
     var dec2bin = AnyBase(AnyBase.dec, AnyBase.bin);
 
     String numbin = dec2bin.convert(num);
@@ -38,6 +38,7 @@ abstract class _HomeControllerBase with Store {
       }
       return zeros + numBin;
     }
+    else return numBin;
   }
 
   String calcula(String num1, String num2, String operacao) {
@@ -46,33 +47,33 @@ abstract class _HomeControllerBase with Store {
       case '+':
         {
           resultInt = int.parse(num1) + int.parse(num2);
-          return completaZerosEsquerda(DecToBin(resultInt.toString()));
+          return completaZerosEsquerda(decToBin(resultInt.toString()));
         }
         break;
 
       case '-':
         {
           resultInt = int.parse(num1) - int.parse(num2);
-          return completaZerosEsquerda(DecToBin(resultInt.toString()));
+          return completaZerosEsquerda(decToBin(resultInt.toString()));
         }
         break;
 
       case '*':
         {
           resultInt = int.parse(num1) * int.parse(num2);
-          return completaZerosEsquerda(DecToBin(resultInt.toString()));
+          return completaZerosEsquerda(decToBin(resultInt.toString()));
         }
         break;
       case '/':
         {
           double resultInt = int.parse(num1) / int.parse(num2);
-          return  completaZerosEsquerda(DecToBin( resultInt.floor().toString()));
+          return  completaZerosEsquerda(decToBin( resultInt.floor().toString()));
         }
         break;
       case '%':
         {
           resultInt = (int.parse(num1) % int.parse(num2)).round();
-          return completaZerosEsquerda(DecToBin(resultInt.toString()));
+          return completaZerosEsquerda(decToBin(resultInt.toString()));
         }
         break;
 

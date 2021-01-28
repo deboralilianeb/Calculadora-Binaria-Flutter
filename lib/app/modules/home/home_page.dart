@@ -80,8 +80,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                   color: Colors.black,
                                   fontSize: font_size_medium),
                               underline: Container(
-                                height: 2,
-                                color: Colors.black,
+                                height: 1,
+                                color: Colors.grey,
                               ),
                               onChanged: (String newValue) {
                                 setState(() {
@@ -125,7 +125,12 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                       "Os campos não foram preenchidos corretamente.",
                                       context,
                                       gravity: Toast.CENTER,
-                                      duration: Toast.LENGTH_LONG);
+                                      duration: Toast.LENGTH_LONG
+                                      
+                                      );
+                                      setState(() {
+                                        mostrarResultado=false;
+                                      });
                                 } else if (n1TaskController.text == "" ||
                                     n2TaskController.text == "") {
                                   Toast.show(
@@ -183,7 +188,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                 visible: mostrarResultado,
                                 child: Container(
                                   width:
-                                      MediaQuery.of(context).size.width * 0.90,
+                                      MediaQuery.of(context).size.width * 0.80,
                                   child: Center(
                                       child: Text(
                                     result,
