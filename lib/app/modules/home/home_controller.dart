@@ -30,7 +30,7 @@ abstract class _HomeControllerBase with Store {
     return numbin;
   }
 
-  String completaZerosDireira(String numBin) {
+  String completaZerosEsquerda(String numBin) {
     String zeros = '';
     if (numBin.length < 8) {
       for (int i = 0; i < 8 - numBin.length; i++) {
@@ -46,33 +46,33 @@ abstract class _HomeControllerBase with Store {
       case '+':
         {
           resultInt = int.parse(num1) + int.parse(num2);
-          return completaZerosDireira(DecToBin(resultInt.toString()));
+          return completaZerosEsquerda(DecToBin(resultInt.toString()));
         }
         break;
 
       case '-':
         {
           resultInt = int.parse(num1) - int.parse(num2);
-          return completaZerosDireira(DecToBin(resultInt.toString()));
+          return completaZerosEsquerda(DecToBin(resultInt.toString()));
         }
         break;
 
       case '*':
         {
           resultInt = int.parse(num1) * int.parse(num2);
-          return completaZerosDireira(DecToBin(resultInt.toString()));
+          return completaZerosEsquerda(DecToBin(resultInt.toString()));
         }
         break;
       case '/':
         {
           double resultInt = int.parse(num1) / int.parse(num2);
-          return  completaZerosDireira(DecToBin( resultInt.floor().toString()));
+          return  completaZerosEsquerda(DecToBin( resultInt.floor().toString()));
         }
         break;
       case '%':
         {
           resultInt = (int.parse(num1) % int.parse(num2)).round();
-          return completaZerosDireira(DecToBin(resultInt.toString()));
+          return completaZerosEsquerda(DecToBin(resultInt.toString()));
         }
         break;
 
