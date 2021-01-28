@@ -41,7 +41,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       body: SingleChildScrollView(
           child: Padding(
               padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.1,
+                  top: MediaQuery.of(context).size.height * 0.05,
                   left: 10,
                   right: 10 ),
               child: Container(
@@ -66,7 +66,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                 hintText: 'Insira o número binário',
                                 labelText: 'Número 1',
                               ),
-                              validator: _validarBinarios,
+                              validator: _validarBinarios, //regex aceita somente binários de 0 a 255
                             ),
                             SizedBox(
                               height: 20,
@@ -112,7 +112,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                 hintText: 'Insira o número binário',
                                 labelText: 'Número 2',
                               ),
-                              validator: _validarBinarios,
+                              validator: _validarBinarios, //regex aceita somente binários de 0 a 255
                             ),
                             SizedBox(
                               height: 30,
@@ -197,7 +197,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                           ],
                         ),
                       ))))),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton( //limpa campos 
         onPressed: () {
           setState(() {
             n1TaskController.clear();
@@ -217,6 +217,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
     );
   }
 
+//funcao para validar número binário de 0 a 255
   String _validarBinarios(String value) {
     String pattern = r'^(0|1){1,8}$';
     RegExp regExp = new RegExp(pattern);
